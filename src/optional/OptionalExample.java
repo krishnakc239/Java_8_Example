@@ -46,20 +46,29 @@ public class OptionalExample {
 
         //Filtering values
         Optional<User> new_user =Optional.ofNullable(new User("1","Hari","MALE"));
-        new_user.filter(user3 -> user3.getGender().equalsIgnoreCase("MALE")).ifPresent(
+        new_user.filter(user3 -> user3.getGender().equalsIgnoreCase("MALE"))
+                .ifPresent(
                 (value)-> System.out.println("gender  matched for "+ value.getName()));
 
         //Extracting and transforming values using map():
-        Optional<String> nonEmptyGender = Optional.of("male");
-        Optional<String> emptyGender = Optional.empty();
+        Address userAddress = new Address("Nepal");
+        Optional<Address> addressOptional = Optional.ofNullable(new Address("Nepal"));
+        //using conventional method
+        if(userAddress != null) {
+            String address = userAddress.getAddress();
+            if(address != null && address.equalsIgnoreCase("Nepal")) {
+                System.out.println("conventional method >>> User belongs to Nepal");
+            }
+        }
 
-        System.out.println("Non-Empty Optional:: " + nonEmptyGender.map(String::toUpperCase));
-        System.out.println("Empty Optional    :: " + emptyGender.map(String::toUpperCase));
+        //using optional map method
+        addressOptional.map(Address::getAddress)
+                .filter(address -> address.equalsIgnoreCase("Nepal"))
+                .ifPresent( country-> {
+                    System.out.println("map() method >>>> User belongs to :"+ country);
+                });
 
-        Optional<Optional<String>> nonEmptyOtionalGender = Optional.of(Optional.of("male"));
-        System.out.println("Optional value   :: " + nonEmptyOtionalGender);
-        System.out.println("Optional.map     :: " + nonEmptyOtionalGender.map(gender -> gender.map(String::toUpperCase)));
-        System.out.println("Optional.flatMap :: " + nonEmptyOtionalGender.flatMap(gender -> gender.map(String::toUpperCase)));
+
 
     }
 }

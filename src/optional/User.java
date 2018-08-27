@@ -4,7 +4,6 @@ public class User {
     private String id;
     private String name;
     private String gender;
-    private String address;
 
     public User(String id, String name, String gender){
         this.id= id;

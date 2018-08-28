@@ -2,8 +2,10 @@ package method_reference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
-public class Person {
+public class Person  {
      private String name;
 
     public void setName(String name) {
@@ -43,11 +45,12 @@ public class Person {
         personList.add(p1);
         personList.add(p2);
         System.out.println("reference to an instance method of an arbitrary object of a particular type->");
-        personList.forEach(Person::displayName); //Here it should be noted that display is an instance method
-                                                // which will be called for each object of type Person
-                                                // in the list. As we know the fact that
-                                                // instance methods can be called only on an object reference.
-                                                // Here the object reference is an arbitrary one.
+        personList.forEach(Person::displayName);
+        /*Here it should be noted that display is an instance method
+         which will be called for each object of type Person
+         in the list. As we know the fact that
+         instance methods can be called only on an object reference.
+         Here the object reference is an arbitrary one.*/
     }
 
 

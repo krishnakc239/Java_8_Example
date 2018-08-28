@@ -1,6 +1,10 @@
 package optional;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class OptionalExample {
     public static void main(String[] args) {
@@ -60,13 +64,33 @@ public class OptionalExample {
                 System.out.println("conventional method >>> User belongs to Nepal");
             }
         }
+        //using  map method
+        /**
+         * @Note
+         * instance and ClassName are called the receiver. More specifically, instance is called bounded receiver
+         * while ClassName is called unbounded receiver.We call instance bounded receiver since the receiver is bounded to the instance.
+         * ClassName is unbouned receiver since the receiver is bounded later.*/
 
-        //using optional map method
-        addressOptional.map(Address::getAddress)
+        addressOptional.map( Address:: getAddress)
                 .filter(address -> address.equalsIgnoreCase("Nepal"))
                 .ifPresent( country-> {
                     System.out.println("map() method >>>> User belongs to :"+ country);
                 });
+
+        //using flatMap()
+	    /**
+	     * @Note:
+	     * if the mapping function returns an wrapper type, flatMap() is used instead of map()
+	     * to get the flattened result from wrapper*/
+
+	    Stream<List<Integer>> integerListStream = Stream.of(
+			    Arrays.asList(1, 2),
+			    Arrays.asList(3, 4),
+			    Arrays.asList(5)
+	    );
+
+	    Stream<Integer> integerStream = integerListStream .flatMap(Collection::stream);
+	    integerStream.forEach(System.out::println);
 
 
 

@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class PredicateExample {
+public class FunctionalInterfacesExample {
     public static void printName(String name){
         System.out.println(name);
     }
@@ -14,12 +14,13 @@ public class PredicateExample {
         System.out.println(predicateString.test("Hari"));
 
 
-        Consumer<String> consumer = PredicateExample::printName;
+        Consumer<String> consumer = FunctionalInterfacesExample::printName;
         consumer.accept("Consumer");
 
         //Supplier instance with lambda expression
         Supplier<String> helloStrSupplier = () -> "Hello from Supplier!! ";
         String helloStr = helloStrSupplier.get();
+
         System.out.println(helloStr);
 
         Function<Integer, String> function = (t) -> {

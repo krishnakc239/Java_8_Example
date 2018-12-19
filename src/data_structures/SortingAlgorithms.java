@@ -115,5 +115,33 @@ public class SortingAlgorithms {
      * Then, it repeatedly merges these subarrays, to produce new sorted subarrays,
      * and in the end, one complete sorted array is produced.*/
 
+    /**5. Breadth First Search with Queue*/
+    /*ALGORITHM
+    * In breadth-first search we explore all the nearest possibilities by finding all possible successors and enqueue them to a queue.
+
+    -Create a queue
+    -Create a new choice point
+    -Enqueue the choice point onto the queue
+    -while (not found and queue is not empty)
+    -   Dequeue the queue
+    -   Find all possible choices after the last one tried
+    -   Enqueue these choices onto the queue
+    -Return
+    */
+
+    /**6.Depth-First Search with a Stack*/
+    /*ALGORITHM
+    * In depth-first search we go down a path until we get to a dead end; then we backtrack or back up (by popping a stack) to get an alternative path.
+
+    -Create a stack
+    -Create a new choice point
+    -Push the choice point onto the stack
+    -while (not found and stack is not empty)
+    -    Pop the stack
+    -    Find all possible choices after the last one tried
+    -    Push these choices onto the stack
+    -Return
+    */
+
 
 }
